@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Organizing Data(重新组织数据) | INNER PEACE</title>
+  <meta name="author" content="Alex">
+  
+  <meta name="description" content="这是《Refactoring》的第8章，总共讲了有18种方法来重构你的代码，均是针对类的field来谈的
+1.Self Encapsulate Field（自封装字段）2.Replace Data Value with Object（以对象取代数据值）3.Change Value To Refere">
+  
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Organizing Data(重新组织数据)"/>
+  <meta property="og:site_name" content="INNER PEACE"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="INNER PEACE" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div id="page" class="site">
+  <div id="primary" class="content-area">
+
+    <header id="header" class="inner"><div class="site-branding">
+  <h1 class="site-title">
+    <a href="/">INNER PEACE</a>
+  </h1>
+  <p class="site-description"></p>
+</div>
+<nav id="site-navigation" class="main-navigation" role="navigation">
+  <ul>
+    
+      <li><a href="/">主页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+</nav></header>
+
+    <article id="content" class="site-content">
+      <main id="main" class="site-main posts-loop" role="main">
+        <article class="post article">
+
+  
+  
+    <h3 class="article-title"><span>Organizing Data(重新组织数据)</span></h3>
+  
+
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/02/重新组织数据/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-01T23:19:37.000Z">
+          2016-07-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>这是《Refactoring》的第8章，总共讲了有18种方法来重构你的代码，均是针对类的field来谈的</p>
+<h3 id="1-Self-Encapsulate-Field（自封装字段）"><a href="#1-Self-Encapsulate-Field（自封装字段）" class="headerlink" title="1.Self Encapsulate Field（自封装字段）"></a>1.Self Encapsulate Field（自封装字段）</h3><h3 id="2-Replace-Data-Value-with-Object（以对象取代数据值）"><a href="#2-Replace-Data-Value-with-Object（以对象取代数据值）" class="headerlink" title="2.Replace Data Value with Object（以对象取代数据值）"></a>2.Replace Data Value with Object（以对象取代数据值）</h3><h3 id="3-Change-Value-To-Reference（将值对象改为引用对象）"><a href="#3-Change-Value-To-Reference（将值对象改为引用对象）" class="headerlink" title="3.Change Value To Reference（将值对象改为引用对象）"></a>3.Change Value To Reference（将值对象改为引用对象）</h3><h3 id="4-Change-Reference-To-Value（将引用对象改为值对象）"><a href="#4-Change-Reference-To-Value（将引用对象改为值对象）" class="headerlink" title="4.Change Reference To Value（将引用对象改为值对象）"></a>4.Change Reference To Value（将引用对象改为值对象）</h3><h3 id="5-Replace-Array-with-Object（以对象取代数组）"><a href="#5-Replace-Array-with-Object（以对象取代数组）" class="headerlink" title="5.Replace Array with Object（以对象取代数组）"></a>5.Replace Array with Object（以对象取代数组）</h3><h3 id="6-Duplicate-Observed-Data（复制被监视的数据）"><a href="#6-Duplicate-Observed-Data（复制被监视的数据）" class="headerlink" title="6.Duplicate Observed Data（复制被监视的数据）"></a>6.Duplicate Observed Data（复制被监视的数据）</h3><h3 id="7-Change-Unidirectional-Association-To-Bidirectional（将单向关联改为双向关联）"><a href="#7-Change-Unidirectional-Association-To-Bidirectional（将单向关联改为双向关联）" class="headerlink" title="7.Change Unidirectional Association To Bidirectional（将单向关联改为双向关联）"></a>7.Change Unidirectional Association To Bidirectional（将单向关联改为双向关联）</h3><h3 id="8-Change-Bidirectional-Association-To-Unidirectional（将双向关联改为单向关联）"><a href="#8-Change-Bidirectional-Association-To-Unidirectional（将双向关联改为单向关联）" class="headerlink" title="8.Change Bidirectional Association To Unidirectional（将双向关联改为单向关联）"></a>8.Change Bidirectional Association To Unidirectional（将双向关联改为单向关联）</h3><h3 id="9-Replace-Magic-Number-with-Symbolic-Constant（以字面量取代魔法数）"><a href="#9-Replace-Magic-Number-with-Symbolic-Constant（以字面量取代魔法数）" class="headerlink" title="9.Replace Magic Number with Symbolic Constant（以字面量取代魔法数）"></a>9.Replace Magic Number with Symbolic Constant（以字面量取代魔法数）</h3><h3 id="10-Encapsulate-Field（封装字段）"><a href="#10-Encapsulate-Field（封装字段）" class="headerlink" title="10.Encapsulate Field（封装字段）"></a>10.Encapsulate Field（封装字段）</h3><h3 id="11-Encapsulate-Collection（封装集合）"><a href="#11-Encapsulate-Collection（封装集合）" class="headerlink" title="11.Encapsulate Collection（封装集合）"></a>11.Encapsulate Collection（封装集合）</h3><h3 id="12-Replace-Record-with-Data-Class（以数据类取代记录）"><a href="#12-Replace-Record-with-Data-Class（以数据类取代记录）" class="headerlink" title="12.Replace Record with Data Class（以数据类取代记录）"></a>12.Replace Record with Data Class（以数据类取代记录）</h3><h3 id="13-Replace-Type-Code-with-Class（以类取代类型码）"><a href="#13-Replace-Type-Code-with-Class（以类取代类型码）" class="headerlink" title="13.Replace Type Code with Class（以类取代类型码）"></a>13.Replace Type Code with Class（以类取代类型码）</h3><h3 id="14-Replace-Type-Code-with-Subclasses（以子类取代类型码）"><a href="#14-Replace-Type-Code-with-Subclasses（以子类取代类型码）" class="headerlink" title="14.Replace Type Code with Subclasses（以子类取代类型码）"></a>14.Replace Type Code with Subclasses（以子类取代类型码）</h3><h3 id="15-Replace-Type-Code-with-State-Strategy（以state-strategy取代类型码）"><a href="#15-Replace-Type-Code-with-State-Strategy（以state-strategy取代类型码）" class="headerlink" title="15.Replace Type Code with State/Strategy（以state/strategy取代类型码）"></a>15.Replace Type Code with State/Strategy（以state/strategy取代类型码）</h3><h3 id="16-Repalce-Subclass-with-Fields（以字段取代子类）"><a href="#16-Repalce-Subclass-with-Fields（以字段取代子类）" class="headerlink" title="16.Repalce Subclass with Fields（以字段取代子类）"></a>16.Repalce Subclass with Fields（以字段取代子类）</h3>
+      
+    </div>
+    <footer class="article-footer">
+        <div class="article-meta pull-left">
+          
+          
+        </div>
+        
+    </footer>
+  </div>
+</article>
+
+  
+
+
+
+      </main>
+    </article>
+
+    <footer id="colophon" class="site-footer" role="contentinfo"><p class="site-info">
+  Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+  Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+  </br>
+  
+  &copy; 2016 Alex
+  
+</p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
