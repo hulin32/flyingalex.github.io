@@ -7,7 +7,7 @@
   <meta name="author" content="HuLin">
   
   <meta name="description" content="一直觉得基础是非常重要的，自己一直也在补充这方面的知识，最近在读《Refactoring–Improving the Design of Existing Code》，读到第6章了，觉得有必要将其中的一些知识点写一下，以便加深印象。开始吧。。。。
-前面几章我觉得第三章比较重要——代码的坏味道（bad">
+前面几章我觉得第三章比较重要——代码的坏味道（bad smells in code），就从这章开始吧">
   
   
 
@@ -75,7 +75,7 @@
     <div class="entry">
       
         <p>一直觉得基础是非常重要的，自己一直也在补充这方面的知识，最近在读《Refactoring–Improving the Design of Existing Code》，读到第6章了，觉得有必要将其中的一些知识点写一下，以便加深印象。开始吧。。。。</p>
-<p>前面几章我觉得第三章比较重要——代码的坏味道（bad smells in code），就从这章开始吧</p>
+<p>前面几章我觉得第三章比较重要——代码的坏味道（bad smells in code），就从这章开始吧<br><a id="more"></a></p>
 <h3 id="问题-什么时候开始重构你的代码？"><a href="#问题-什么时候开始重构你的代码？" class="headerlink" title="问题: 什么时候开始重构你的代码？"></a>问题: 什么时候开始重构你的代码？</h3><h3 id="重构22条"><a href="#重构22条" class="headerlink" title="重构22条:"></a>重构22条:</h3><h4 id="1-重复的代码-dumplicated-code"><a href="#1-重复的代码-dumplicated-code" class="headerlink" title="1.重复的代码(dumplicated code)"></a>1.重复的代码(dumplicated code)</h4><p>相同或相似的代码，将相同的地方抽取出来，避免重复的代码。如果代码是重复的，当修改一个地方，就需要修改其他地方，做无用功，有时如果忘了修改其中一个地方就悲剧了，因此相同的代码尽量抽出来放一个地方便于维护。</p>
 <h3 id="2-长方法（long-method）"><a href="#2-长方法（long-method）" class="headerlink" title="2.长方法（long method）"></a>2.长方法（long method）</h3><p>方法太长不宜理解。有太多的参数和临时变量可以抽出来。判断和循环也可抽出来。用小方法代替长方法</p>
 <h3 id="3-大类-large-class"><a href="#3-大类-large-class" class="headerlink" title="3.大类(large class)"></a>3.大类(large class)</h3><p>当一个类很大时，一般这样的类里都有很多实例变量。可以将一些实例变量抽成另外一个类。</p>

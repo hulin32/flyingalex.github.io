@@ -73,30 +73,7 @@
     <div class="entry">
       
         <p>一直觉得基础是非常重要的，自己一直也在补充这方面的知识，最近在读《Refactoring–Improving the Design of Existing Code》，读到第6章了，觉得有必要将其中的一些知识点写一下，以便加深印象。开始吧。。。。</p>
-<p>前面几章我觉得第三章比较重要——代码的坏味道（bad smells in code），就从这章开始吧</p>
-<h3 id="问题-什么时候开始重构你的代码？"><a href="#问题-什么时候开始重构你的代码？" class="headerlink" title="问题: 什么时候开始重构你的代码？"></a>问题: 什么时候开始重构你的代码？</h3><h3 id="重构22条"><a href="#重构22条" class="headerlink" title="重构22条:"></a>重构22条:</h3><h4 id="1-重复的代码-dumplicated-code"><a href="#1-重复的代码-dumplicated-code" class="headerlink" title="1.重复的代码(dumplicated code)"></a>1.重复的代码(dumplicated code)</h4><p>相同或相似的代码，将相同的地方抽取出来，避免重复的代码。如果代码是重复的，当修改一个地方，就需要修改其他地方，做无用功，有时如果忘了修改其中一个地方就悲剧了，因此相同的代码尽量抽出来放一个地方便于维护。</p>
-<h3 id="2-长方法（long-method）"><a href="#2-长方法（long-method）" class="headerlink" title="2.长方法（long method）"></a>2.长方法（long method）</h3><p>方法太长不宜理解。有太多的参数和临时变量可以抽出来。判断和循环也可抽出来。用小方法代替长方法</p>
-<h3 id="3-大类-large-class"><a href="#3-大类-large-class" class="headerlink" title="3.大类(large class)"></a>3.大类(large class)</h3><p>当一个类很大时，一般这样的类里都有很多实例变量。可以将一些实例变量抽成另外一个类。</p>
-<h3 id="4-长参数列表（long-parameter-list）"><a href="#4-长参数列表（long-parameter-list）" class="headerlink" title="4.长参数列表（long parameter list）"></a>4.长参数列表（long parameter list）</h3><p>可用传对象的方式改变参数的长度，并且具有更好的维护性和可读性</p>
-<h3 id="5-发散式变化（divergent-change）"><a href="#5-发散式变化（divergent-change）" class="headerlink" title="5.发散式变化（divergent change）"></a>5.发散式变化（divergent change）</h3><p>当一个类因为不同的原因以不同的方式变化。应该将其切分成几个小点方法，每个类只因为一种变化而改变。</p>
-<h3 id="6-散弹式变化（shotgun-surgery）"><a href="#6-散弹式变化（shotgun-surgery）" class="headerlink" title="6.散弹式变化（shotgun surgery）"></a>6.散弹式变化（shotgun surgery）</h3><p>当发生一种变化时，同时有几个类度都需要做修改。这时因将全部的修改集中到一个类中</p>
-<h3 id="7-依恋情节（feature-envy）"><a href="#7-依恋情节（feature-envy）" class="headerlink" title="7.依恋情节（feature envy）"></a>7.依恋情节（feature envy）</h3><p>类里的方法更多的和另外的类交互，最多的例子是一个类里有很多的get方法与其他类相关。应该根据数据和哪个类最相关就应将其放在哪个类。</p>
-<h3 id="8-数据泥团（data-clumps）"><a href="#8-数据泥团（data-clumps）" class="headerlink" title="8.数据泥团（data clumps）"></a>8.数据泥团（data clumps）</h3><p>很多数据经常出现在一起，可以将它们打包成一个对象</p>
-<h3 id="9-基本类型偏执（primitive-obsession）"><a href="#9-基本类型偏执（primitive-obsession）" class="headerlink" title="9.基本类型偏执（primitive obsession）"></a>9.基本类型偏执（primitive obsession）</h3><p><a href="http://blog.csdn.net/wxr0323/article/details/7913950" target="_blank" rel="external">编程时总喜欢用基本类型，而不喜欢用对象。增加扩展和修改的复杂性</a></p>
-<h3 id="10-switch-状态"><a href="#10-switch-状态" class="headerlink" title="10.switch 状态"></a>10.switch 状态</h3><p>使用switch不好的地方在于增加一个条件的时候需要修改switch语句。在oop中可以多态的方式来解决</p>
-<h3 id="11-平行继承体系（parallel-inheritance-hierarchies）"><a href="#11-平行继承体系（parallel-inheritance-hierarchies）" class="headerlink" title="11.平行继承体系（parallel inheritance hierarchies）"></a>11.平行继承体系（parallel inheritance hierarchies）</h3><p>平行继承体系是散弹式变化（shotgun surgery）的一种特殊例子，当为一个类增加一个子类时，就要为另外一个类添加一个子类。可通过让一个类引用另外一个类的实例来避免这种情况</p>
-<h3 id="12-懒类（lazy-class）"><a href="#12-懒类（lazy-class）" class="headerlink" title="12.懒类（lazy class）"></a>12.懒类（lazy class）</h3><p>一个类如果能做的事不如创建它所耗费的多就应该消除掉它，或减少它的数量，一些无用的类也可以用行内类代替</p>
-<h3 id="13-夸夸其谈未来性（Speculative-Generality）"><a href="#13-夸夸其谈未来性（Speculative-Generality）" class="headerlink" title="13.夸夸其谈未来性（Speculative Generality）"></a>13.夸夸其谈未来性（Speculative Generality）</h3><p>定义将来可能需要的方法或其他，应该将此删除</p>
-<h3 id="14-临时字段（Temporary-Field）"><a href="#14-临时字段（Temporary-Field）" class="headerlink" title="14.临时字段（Temporary Field）"></a>14.临时字段（Temporary Field）</h3><p>一个类里的有些变量只在某些环境中有作用，这时应该将它们提取出来做为一个新的类</p>
-<h3 id="15-消息链（message-chains）"><a href="#15-消息链（message-chains）" class="headerlink" title="15.消息链（message chains）"></a>15.消息链（message chains）</h3><p>当客户端调用一个类去访问另外一个类时，另外一个类又去访问其他的类，如此反复，当中间的任何类变化都有可能影响到客户端的代码。一般的做法是隐藏中间类。更好的做法是看最终使用的对象是什么，看看是否可以将其抽出来放在一个方法中供客户端代码调用。</p>
-<h3 id="16-中间人（middle-man）"><a href="#16-中间人（middle-man）" class="headerlink" title="16.中间人（middle man）"></a>16.中间人（middle man）</h3><p>当一个类中的接口大部分都是其他类的代理时可以考虑将其抽出来，让其与那个紧密联系的类交互。另外可以行内方法或继承重构。</p>
-<h3 id="17-不合时宜的紧密关系（inappropriate-intimacy）"><a href="#17-不合时宜的紧密关系（inappropriate-intimacy）" class="headerlink" title="17.不合时宜的紧密关系（inappropriate intimacy）"></a>17.不合时宜的紧密关系（inappropriate intimacy）</h3><p>有时候有些类太过紧密，大部分时间都在处理对方的私有部分，这时应该通过迁移方法和子段来将其分开，减少这种紧密联系。继承很容易造成这种情况，可以用代理来代替继承</p>
-<h3 id="18-有不同接口的可选类（alternative-classes-with-different-interfaces）"><a href="#18-有不同接口的可选类（alternative-classes-with-different-interfaces）" class="headerlink" title="18.有不同接口的可选类（alternative classes with different interfaces）"></a>18.有不同接口的可选类（alternative classes with different interfaces）</h3><p>将做同样事情的类统一命名，并移动代码直到一个类遵守的协议相同为止。</p>
-<h3 id="19-不完善的库类（incomplete-library-class）"><a href="#19-不完善的库类（incomplete-library-class）" class="headerlink" title="19.不完善的库类（incomplete  library class）"></a>19.不完善的库类（incomplete  library class）</h3><p>修改一个库类来达到我们想要的要求一般不可能。当然可以通过引入外加函数和引入本地扩展来达到目的。</p>
-<h3 id="20-数据类（data-class）"><a href="#20-数据类（data-class）" class="headerlink" title="20.数据类（data class）"></a>20.数据类（data class）</h3><p>数据类知道很多数据的细节，并且被其他类使用，应该将数据封装起来，将setter和getter方法移入数据类，删除不必要的setter和getter方法</p>
-<h3 id="21-被拒绝的遗赠（refused-bequest）"><a href="#21-被拒绝的遗赠（refused-bequest）" class="headerlink" title="21.被拒绝的遗赠（refused bequest）"></a>21.被拒绝的遗赠（refused bequest）</h3><p>子类复用超类的行为但是拒绝支持超类的接口，这时可用代理来替换继承</p>
-<h3 id="22-评论（comments）"><a href="#22-评论（comments）" class="headerlink" title="22.评论（comments）"></a>22.评论（comments）</h3><p>当需要注释去解释一段代码需要做什么的时候，尝试将其抽成一个方法。当抽出方法后仍需要注释的话可以尝试修改方法名。</p>
-
+<p>前面几章我觉得第三章比较重要——代码的坏味道（bad smells in code），就从这章开始吧<br>
       
     </div>
     <footer class="article-footer">
