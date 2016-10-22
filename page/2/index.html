@@ -52,57 +52,6 @@
 
   
   
-    <h3 class="article-title"><a href="/2016/06/21/端口重定向/"><span>端口重定向</span></a></h3>
-  
-
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/06/21/端口重定向/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-06-20T16:00:00.000Z">
-          2016-06-21
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h3 id="客户需求："><a href="#客户需求：" class="headerlink" title="客户需求："></a>客户需求：</h3><p>访问127.0.0.1:8080和127.0.0.1时均指向127.0.0.1。－－－－有点奇葩</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>通过修改服务器防火墙设置将8080端口重定向到80端口即可。</p>
-<h3 id="具体操作—使用iptables"><a href="#具体操作—使用iptables" class="headerlink" title="具体操作—使用iptables"></a>具体操作—使用iptables</h3><h5 id="端口重定向"><a href="#端口重定向" class="headerlink" title="端口重定向"></a>端口重定向</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-ports 80</div></pre></td></tr></table></figure>
-<p>参数解释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-t nat    该规则所应用的表（filter,nat,mangle）</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-A PREROUTING  添加进PREROUTING(进行路由判断之前所要进行的规则，有DNAT/REDIRECT)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--dport 8080  访问的目标端口(destination port)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-j REDIRECT   执行重定向(--jump target, 跳转目标，符合规则后执行target)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--to-ports 80  跳转到80端口</div></pre></td></tr></table></figure>
-<h5 id="取消端口重定向"><a href="#取消端口重定向" class="headerlink" title="取消端口重定向"></a>取消端口重定向</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -X 清楚所用用户自定义的规则（比较暴力）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables -t table num   这种方式我试了不起效，所以选择了上面那种暴力解决，哈哈。。。</div></pre></td></tr></table></figure>
-<h6 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h6><p>1.<a href="http://cdn.verydemo.com/demo_c167_i32720.html" target="_blank" rel="external">http://cdn.verydemo.com/demo_c167_i32720.html</a>。</p>
-<p>2.《鸟哥的Linux私房菜：服务器架设篇》（第三版）P262</p>
-
-      
-    </div>
-    <footer class="article-footer">
-        <div class="article-meta pull-left">
-          
-          
-        </div>
-        
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post article">
-
-  
-  
     <h3 class="article-title"><a href="/2016/05/30/一年小结/"><span>在读书单</span></a></h3>
   
 
