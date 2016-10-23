@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>phoenix初探 | INNER PEACE</title>
+  <meta name="author" content="HuLin">
+  
+  <meta name="description" content="搭建一个简单而丑陋的小博客在我第一份工作刚入职不久，大概2，3个月吧，因为想看一些除了工作上的技术充电，当时docker比较火，逮着官网就开始看了，结合一些一本中文书籍（其实应该是书集合着官网啦，当时全看英文还是有点不大适应😄），谅解到go语言，然后看了一下go的语法，有点接受不了，就去找跟它类似的语言，处理并发的(到现在其实我也没有接触到说需要用并发去处理的，主要是接触到的项目都还没有大到用，但我相信总有一天会用到的，以此为证，哈哈哈哈哈)，进而了解到elixir，在网上看了他们的比较，都说它很好，要取代go，但现在也没到一丝的迹象，但我看到它的语法的时候虽说没有很惊讶，但就有种莫名的想法让我坚持把get started扫了一遍，然后当时也看到了phoenix这个框架，但还不够成熟。然后就是到最近了，看见phoenix已经用于生产环境了，拿起phoenix官方文档撸吧，想了好久了。">
+  
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="phoenix初探"/>
+  <meta property="og:site_name" content="INNER PEACE"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="INNER PEACE" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div id="page" class="site">
+  <div id="primary" class="content-area">
+
+    <header id="header" class="inner"><div class="site-branding">
+  <h1 class="site-title">
+    <a href="/">INNER PEACE</a>
+  </h1>
+  <p class="site-description"></p>
+</div>
+<nav id="site-navigation" class="main-navigation" role="navigation">
+  <ul>
+    
+      <li><a href="/">主页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+</nav></header>
+
+    <article id="content" class="site-content">
+      <main id="main" class="site-main posts-loop" role="main">
+        <article class="post article">
+
+  
+  
+    <h3 class="article-title"><span>phoenix初探</span></h3>
+  
+
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/23/phoenix初探/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-23T13:39:48.000Z">
+          2016-10-23
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>搭建一个简单而丑陋的小博客<br>在我第一份工作刚入职不久，大概2，3个月吧，因为想看一些除了工作上的技术充电，当时docker比较火，逮着官网就开始看了，结合一些一本中文书籍（其实应该是书集合着官网啦，当时全看英文还是有点不大适应😄），谅解到go语言，然后看了一下go的语法，有点接受不了，就去找跟它类似的语言，处理并发的(到现在其实我也没有接触到说需要用并发去处理的，主要是接触到的项目都还没有大到用，但我相信总有一天会用到的，以此为证，哈哈哈哈哈)，进而了解到<a href="http://elixir-lang.org/getting-started/introduction.html" target="_blank" rel="external">elixir</a>，在网上看了他们的比较，都说它很好，要取代go，但现在也没到一丝的迹象，但我看到它的语法的时候虽说没有很惊讶，但就有种莫名的想法让我坚持把get started扫了一遍，然后当时也看到了phoenix这个框架，但还不够成熟。然后就是到最近了，看见<a href="http://vincent.jousse.org/en/tech/elm-phoenix-elixir-production/" target="_blank" rel="external">phoenix已经用于生产环境了</a>，拿起<a href="http://www.phoenixframework.org/" target="_blank" rel="external">phoenix</a>官方文档撸吧，想了好久了。<br><a id="more"></a></p>
+<p>1.前期准备:安装elixir和phoenix脚手架</p>
+<p>elixir的安装，<a href="http://elixir-lang.org/install.html" target="_blank" rel="external">点我</a>，写这个的时候发现官网有docker版本了！，赞👍</p>
+<p>phoenix的安装，<a href="http://www.phoenixframework.org/docs/installation" target="_blank" rel="external">点我</a></p>
+<p>2.创建博客表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix phoenix.gen.html Post posts title:string author:string conent:text</div></pre></td></tr></table></figure></p>
+<p>然后一直Y会看到生成如下信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">* creating web/controllers/post_controller.ex</div><div class="line">web/controllers/post_controller.ex already exists, overwrite? [Yn] Y</div><div class="line">* creating web/templates/post/edit.html.eex</div><div class="line">* creating web/templates/post/form.html.eex</div><div class="line">* creating web/templates/post/index.html.eex</div><div class="line">web/templates/post/index.html.eex already exists, overwrite? [Yn] y</div><div class="line">* creating web/templates/post/new.html.eex</div><div class="line">* creating web/templates/post/show.html.eex</div><div class="line">* creating web/views/post_view.ex</div><div class="line">web/views/post_view.ex already exists, overwrite? [Yn] y</div><div class="line">* creating test/controllers/post_controller_test.exs</div><div class="line">* creating web/models/post.ex</div><div class="line">* creating test/models/post_test.exs</div><div class="line">* creating priv/repo/migrations/20161023114042_create_post.exs</div><div class="line"></div><div class="line">Add the resource to your browser scope in web/router.ex:</div><div class="line"></div><div class="line">    resources &quot;/posts&quot;, PostController</div><div class="line"></div><div class="line">Remember to update your repository by running migrations:</div><div class="line"></div><div class="line">    $ mix ecto.migrate</div></pre></td></tr></table></figure></p>
+<p>3.跑 <code>mix ecto.migrate</code></p>
+<p>4.在命令行里跑下面命令然后访问<a href="http://localhost:4000/posts" target="_blank" rel="external">http://localhost:4000/posts</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iex -S mix phoenix.server</div></pre></td></tr></table></figure></p>
+<p>丑陋的小博客就搭建起来了。</p>
+<p>在命令生成的页面中有一个方法<strong>post_path</strong>一直没找到它定义的地方。然后我借用了一下它的错误信息，将其中<code>index.html.eex</code>页面的方法<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">post_path(<span class="variable">@conn</span>, <span class="symbol">:show</span>, post)</div></pre></td></tr></table></figure></p>
+<p>改成了<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">post_path(<span class="variable">@conn</span>, <span class="symbol">:sho</span>, post)</div></pre></td></tr></table></figure></p>
+<p>然后看到错误信息<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">No helper clause <span class="keyword">for</span> PhoenixPost.Router.Helpers.post_path/<span class="number">3</span> <span class="keyword">defined</span> <span class="keyword">for</span> action <span class="symbol">:sho</span>. The following post_path actions are <span class="keyword">defined</span> under your <span class="symbol">router:</span></div><div class="line">  * <span class="symbol">:create</span></div><div class="line">  * <span class="symbol">:delete</span></div><div class="line">  * <span class="symbol">:edit</span></div><div class="line">  * <span class="symbol">:index</span></div><div class="line">  * <span class="symbol">:new</span></div><div class="line">  * <span class="symbol">:show</span></div><div class="line">  * <span class="symbol">:update</span></div></pre></td></tr></table></figure></p>
+<p>爱死这个错误信息啦，后面发现这个方法是根据router.ex的配置自动生成的。赞得不要不要的。</p>
+<p>下篇打算写个微信登陆的elixir版本。</p>
+<p>注意：</p>
+<ul>
+<li>跑<code>mix ecto.migrate</code>时注意价检查数据库是否配置正确</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+        <div class="article-meta pull-left">
+          
+  
+
+  <span class="post-categories">
+    <i class="icon-categories"></i>
+    <a href="/categories/phoenix-framework/">phoenix framework</a>
+  </span>
+
+
+          
+  
+
+  <span class="post-tags">
+    <i class="icon-tags"></i>
+    <a href="/tags/elixir-phoenix/">elixir phoenix</a>
+  </span>
+
+
+        </div>
+        
+    </footer>
+  </div>
+</article>
+
+  
+	<div id="comment">
+	
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/10/23/phoenix初探/" data-title="phoenix初探" data-url="http://flyingalex.github.io/2016/10/23/phoenix初探/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hulinalex"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+
+
+      </main>
+    </article>
+
+    <footer id="colophon" class="site-footer" role="contentinfo"><p class="site-info">
+  Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+  Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+  </br>
+  
+  &copy; 2016 HuLin
+  
+</p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
