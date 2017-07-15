@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>tcp/ip protocols | INNER PEACE</title>
+  <meta name="author" content="HuLin">
+  
+  <meta name="description" content="之前做的presentation.
+
+what happened when you hit google.com in the Chrome behind the scene.
+
+Well, something happended, because today we are talking about tcp/ip protocol,so I just describe the stuff related to them, because other things I also don’t know,haha.">
+  
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="tcp/ip protocols"/>
+  <meta property="og:site_name" content="INNER PEACE"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="INNER PEACE" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div id="page" class="site">
+  <div id="primary" class="content-area">
+
+    <header id="header" class="inner"><div class="site-branding">
+  <h1 class="site-title">
+    <a href="/">INNER PEACE</a>
+  </h1>
+  <p class="site-description"></p>
+</div>
+<nav id="site-navigation" class="main-navigation" role="navigation">
+  <ul>
+    
+      <li><a href="/">主页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+</nav></header>
+
+    <article id="content" class="site-content">
+      <main id="main" class="site-main posts-loop" role="main">
+        <article class="post article">
+
+  
+  
+    <h3 class="article-title"><span>tcp/ip protocols</span></h3>
+  
+
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/15/tcp_ip/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-15T00:15:00.000Z">
+          2017-07-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>之前做的presentation.</p>
+<ol>
+<li>what happened when you hit google.com in the Chrome behind the scene.</li>
+</ol>
+<p>Well, something happended, because today we are talking about tcp/ip protocol,so I just describe the stuff related to them, because other things I also don’t know,haha.<br><a id="more"></a></p>
+<p><img src="http://www.thegeekstuff.com/wp-content/uploads/2011/10/tcp-ip.png" alt="data transfer"><br><img src="http://www.cellbiol.com/bioinformatics_web_development/wp-content/uploads/2017/01/data_transmission_over_the_internet_through_tcp-ip.png" alt="data"></p>
+<p>2.Okay,when you hit <code>google.com</code>, the <code>google.com</code> is user data, which will be packaged to application data by Chrome app(<code>Application Layer</code>), then add tcp header on <code>Transport Layer</code>, then add ip header on <code>Network Layer</code>, then add ethernet header on <code>Data Link Layer</code>.On server side, there also have 4 layers like the app’s side, they will unpackage the corresponding data and let the server know what client want.</p>
+<p>Now in our company,We build website,mobile app, etc. All stuff we did are on <code>Application Layer</code>,we work on it.Last time bertrand talked about the http2,its an application layer protocol,which close to us,maybe you will meet it in your next project.Today I won’t talk about it,we will talk about other 3 layers and start from <code>Transport Layer</code>.</p>
+<p><img src="http://www.tcpipguide.com/free/diagrams/tcpclose.png" alt="close connection handshake"></p>
+<p>3.On transport layer,there are two main protocols,<code>UDP</code> and <code>TCP</code>.</p>
+<p><img src="http://www.tcpipguide.com/free/diagrams/tcpsegmentformat.png" alt="TCP header"></p>
+<p>This is <code>TCP header</code> looks like,TCP provides a reliable,connection-oriented,byte stream service.From the header,you can see there are many fields.Because the service is reliable,so it need some mechanisms to guarantee it.I believe some of you already heard about the <code>three-way handshake</code>, which is tcp connection establishment process.</p>
+<p><img src="http://www.tcpipguide.com/free/diagrams/tcpopen3way.png" alt="open connection handshake"></p>
+<p>Now i want to talk a little bit about it,how the <code>three-way handshake</code> works.When you want to build a connection between the client and server,you need to send a <code>SYN</code> msg to server,when server receive the <code>SYN</code> msg from client,it will return a <code>SYN</code> msg, which like the client’s <code>SYN</code> msg,and <code>ACK</code> msg for client’s <code>SYN</code>,which will tell client that the server have already received your msg.Finally,the client get the server’s <code>SYN</code> and <code>ACK</code>,client check the <code>ACK</code> correctness, if its right, the client side conncetion is established,then send <code>ACK</code> back to the server.The server side will be established when the <code>ACK</code> is checked and received.When both sides connection are established,the data transfer can start.</p>
+<p><img src="http://www.tcpipguide.com/free/diagrams/udpformat.png" alt="UDP header"></p>
+<p>This is <code>UDP header</code>,it just have 5 fields, source port, destination port, these two use for process communication,checksum use for error check.Data is the data we send.<code>UDP</code> is a simple,datagram-oriented protocal, which provides no reliability.Because it just send data,don’t care about if the data reach the destination.</p>
+<p>maybe you are very curious,why we need udp,its unreliable.The thing is udp has something tcp doesn’t have,think about video on website,so many many people see one video,the server can send the same video to a lot of different location,if the data lost,the video will not very clear,just this,no big deal,you still can see the video.tcp can’t do like this,its point to point connection,one connection can use by two points.</p>
+<p><img src="http://www.tcpipguide.com/free/diagrams/ipformat.png" alt="IP header"></p>
+<p>On <code>Network Layer</code>,the most import protocol is <code>IP</code>, Internet Protocol.What we need to know in this presentation is that there are <code>source IP address</code> and <code>destination IP address</code>.With this thing,the data know where they should go.</p>
+<p><img src="http://cfanz.cn/uploads/png/2014/10/28/10/47M73993Df.png" alt="Data Link Layer"></p>
+<p>On this layer, all data from upper layer will be converted into frame,then they can be delivered on cable.This is one funtion of data link layer,this layer also can control the sender flow,because sometimes the receiver’s network is not good,so they can’t resolve all the data from the sender,so the sender need to wait receiver to process the data which are already sent.One more important function is error control,the data can’t be transfered 100% correct on cable,so on data link layer there is a method to check these stuff to make sure data already is sent to where they should go.</p>
+<p>references:</p>
+<p>1.tcp header detail: <a href="http://www.tcpipguide.com/free/t_TCPMessageSegmentFormat-3.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_TCPMessageSegmentFormat-3.htm</a></p>
+<p>2.udp header detail: <a href="http://www.tcpipguide.com/free/t_UDPMessageFormat.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_UDPMessageFormat.htm</a></p>
+<p>3.ip header detail: <a href="http://www.tcpipguide.com/free/t_IPDatagramGeneralFormat.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_IPDatagramGeneralFormat.htm</a></p>
+<p>4.three-way handshake: <a href="http://www.tcpipguide.com/free/t_TCPConnectionEstablishmentProcessTheThreeWayHandsh-3.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_TCPConnectionEstablishmentProcessTheThreeWayHandsh-3.htm</a></p>
+<p>5.tcp connection ternination: <a href="http://www.tcpipguide.com/free/t_TCPConnectionTermination-2.htm" target="_blank" rel="external">http://www.tcpipguide.com/free/t_TCPConnectionTermination-2.htm</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+        <div class="article-meta pull-left">
+          
+  
+
+  <span class="post-categories">
+    <i class="icon-categories"></i>
+    <a href="/categories/fundamental/">fundamental</a>
+  </span>
+
+
+          
+  
+
+  <span class="post-tags">
+    <i class="icon-tags"></i>
+    <a href="/tags/fundamental/">fundamental</a>
+  </span>
+
+
+        </div>
+        
+    </footer>
+  </div>
+</article>
+
+  
+	<div id="comment">
+	
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/07/15/tcp_ip/" data-title="tcp/ip protocols" data-url="http://flyingalex.github.io/2017/07/15/tcp_ip/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hulinalex"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+
+
+      </main>
+    </article>
+
+    <footer id="colophon" class="site-footer" role="contentinfo"><p class="site-info">
+  Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+  Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+  </br>
+  
+  &copy; 2017 HuLin
+  
+</p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
