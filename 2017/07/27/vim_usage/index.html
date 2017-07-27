@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Learn Some Vim And Save Your Time | INNER PEACE</title>
+  <meta name="author" content="HuLin">
+  
+  <meta name="description" content="自己学vim使用的一些命令，大多数在文后的链接能找到">
+  
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Learn Some Vim And Save Your Time"/>
+  <meta property="og:site_name" content="INNER PEACE"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="INNER PEACE" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div id="page" class="site">
+  <div id="primary" class="content-area">
+
+    <header id="header" class="inner"><div class="site-branding">
+  <h1 class="site-title">
+    <a href="/">INNER PEACE</a>
+  </h1>
+  <p class="site-description"></p>
+</div>
+<nav id="site-navigation" class="main-navigation" role="navigation">
+  <ul>
+    
+      <li><a href="/">主页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+</nav></header>
+
+    <article id="content" class="site-content">
+      <main id="main" class="site-main posts-loop" role="main">
+        <article class="post article">
+
+  
+  
+    <h3 class="article-title"><span>Learn Some Vim And Save Your Time</span></h3>
+  
+
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/27/vim_usage/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-27T14:20:00.000Z">
+          2017-07-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>自己学vim使用的一些命令，大多数在文后的链接能找到</p>
+<a id="more"></a>
+<h3 id="Survive"><a href="#Survive" class="headerlink" title="Survive"></a>Survive</h3><ul>
+<li>vi/vim -&gt; open the editor</li>
+<li>:q -&gt; Quit</li>
+<li>:wq -&gt; Save and Quit</li>
+<li>:q! -&gt; Quit and Not Save</li>
+<li>i -&gt; Insert mode</li>
+<li>x -&gt; Delete the char under the cursor</li>
+<li>dd -&gt; Delete the current line</li>
+<li>pP -&gt; Paste to above or under the current line</li>
+<li>yy -&gt; Copy current line</li>
+<li>hjkl -&gt; Right, Down, Up, Left</li>
+</ul>
+<h3 id="Feel-comfortable"><a href="#Feel-comfortable" class="headerlink" title="Feel comfortable"></a>Feel comfortable</h3><ul>
+<li>a -&gt; Insert after the cursor</li>
+<li>oO -&gt; Insert a new line after/before the current one</li>
+<li>0 -&gt; Go to the first column</li>
+<li>^ -&gt; go to the first non-blank character of the line</li>
+<li>$ -&gt; go to the end of line</li>
+<li>g_ -&gt; go to the last non-blank character of line</li>
+<li>/pattern -&gt; search for pattern</li>
+<li>u -&gt; undo</li>
+<li><code>&lt;C-r&gt;</code> -&gt; redo</li>
+<li>:e <code>&lt;path/to/file&gt;</code> -&gt; open file</li>
+<li>bn,bp -&gt; show next/previous file (buffer)</li>
+</ul>
+<h3 id="Feel-Better-Stronger-Faster"><a href="#Feel-Better-Stronger-Faster" class="headerlink" title="Feel Better, Stronger, Faster"></a>Feel Better, Stronger, Faster</h3><ul>
+<li>. -&gt; Repeat the last command</li>
+<li><code>N&lt;command&gt;</code> -&gt; Repeat the command N times.</li>
+<li>NG -&gt; Go to N line</li>
+<li>gg -&gt; Go to first line</li>
+<li>G -&gt; Go to last line</li>
+<li>b -&gt; Open one buffer file</li>
+<li>% -&gt; Go to the corresponding (, {, [.</li>
+<li><code>*</code> -&gt; go to next/previous(#) occurrence of the word under the cursor</li>
+</ul>
+<h3 id="Vim-Superpowers"><a href="#Vim-Superpowers" class="headerlink" title="Vim Superpowers"></a>Vim Superpowers</h3><ul>
+<li><code>f&lt;char&gt;</code>, <code>;</code>, <code>,</code> -&gt; Find one char on the current line, <code>;</code> go to the next same char, ‘,’ go back to the last same char</li>
+<li>t, -&gt; Go to just before the character ,</li>
+<li>F,T -&gt; Like f and t but backward</li>
+<li><code>&lt;C-p&gt;</code> -&gt; Go to the previous line</li>
+<li><code>&lt;C-n&gt;</code> -&gt; GO to the next line</li>
+<li><code>&lt;C-d&gt;</code> -&gt; Go down a half screen</li>
+<li><code>&lt;c-u&gt;</code> -&gt; Go up a half screen</li>
+<li>{,} -&gt; previous/next empty line</li>
+<li>v,V,<code>&lt;C-v&gt;</code> -&gt; Visual mode</li>
+<li>:split, :vsplit -&gt; split the window</li>
+<li>tabnew -&gt; open a new tab</li>
+</ul>
+<p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="external">Learn Vim Progressively</a></p>
+<p><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">简明 VIM 练级攻略</a></p>
+<p><a href="http://learnvimscriptthehardway.stevelosh.com/" target="_blank" rel="external">Learn Vimscript the Hard Way</a></p>
+<p><a href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=sr_1_1?ie=UTF8&amp;qid=1488958924&amp;sr=8-1&amp;keywords=practical-vim" target="_blank" rel="external">Practical Vim: Edit Text at the Speed of Thought</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+        <div class="article-meta pull-left">
+          
+  
+
+  <span class="post-categories">
+    <i class="icon-categories"></i>
+    <a href="/categories/fundamental/">fundamental</a>
+  </span>
+
+
+          
+  
+
+  <span class="post-tags">
+    <i class="icon-tags"></i>
+    <a href="/tags/fundamental-vim/">fundamental,vim</a>
+  </span>
+
+
+        </div>
+        
+    </footer>
+  </div>
+</article>
+
+  
+	<div id="comment">
+	
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/07/27/vim_usage/" data-title="Learn Some Vim And Save Your Time" data-url="http://flyingalex.github.io/2017/07/27/vim_usage/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"hulinalex"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+
+
+      </main>
+    </article>
+
+    <footer id="colophon" class="site-footer" role="contentinfo"><p class="site-info">
+  Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+  Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+  </br>
+  
+  &copy; 2017 HuLin
+  
+</p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
